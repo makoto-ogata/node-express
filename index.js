@@ -1,8 +1,9 @@
-const express=require("express");
-const app=express();
+const express = require("express");
+const app = express();
+const coronaData = require("./coronaData.json");
 
 app.get("/", function(req, res){
-    res.send({"name": "平岡","age": 45 });
+    res.send(coronaData);
 });
 
 app.listen(5005,function(){
