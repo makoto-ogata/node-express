@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
+const activites = require("./activites.json");
 
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/index.html");
@@ -13,6 +14,11 @@ app.post("/autumn", function(req, res){
         res.send("投稿完了");
     });
 });
+
+app.post("/update", function(req, res){
+    activites[0].activity = req.body.updateActivity;
+    res.send(activites);
+})
 
 app.listen(5005,function(){
     console.log("Listening on localhost port 5005");
