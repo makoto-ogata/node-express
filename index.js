@@ -18,7 +18,12 @@ app.post("/autumn", function(req, res){
 app.post("/update", function(req, res){
     activites[0].activity = req.body.updateActivity;
     res.send(activites);
-})
+});
+
+app.post("/delete", function(req, res){
+    activites.splice(req.body.number, 1);
+    res.send(activites);
+});
 
 app.listen(5005,function(){
     console.log("Listening on localhost port 5005");
